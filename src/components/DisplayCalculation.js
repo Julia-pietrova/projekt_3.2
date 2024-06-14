@@ -1,4 +1,4 @@
-import React from 'react';
+import './DisplayCalculation.css';
 
 const DisplayCalculation = ({ result }) => {
   return (
@@ -9,3 +9,4 @@ const DisplayCalculation = ({ result }) => {
 };
 
 export default DisplayCalculation;
+

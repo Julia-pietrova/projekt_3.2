@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import CurrencyConverterForm from './components/CurrencyConverterForm';
+import DisplayCalculation from './components/DisplayCalculation';
+import Loader from './components/Loader';
 
 function App() {
-  const [amount, setAmount] = useState('');
-  const [currency, setCurrency] = useState('eur');
   const [result, setResult] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleConvert = () => {
+  const handleConvert = (event) => {
+    event.preventDefault();
+    const amount = event.target.elements.amount.value;
+    const currency = event.target.elements.currency.value;
+
     if (!amount) {
       alert('Proszę wpisać kwotę.');
       return;
@@ -44,47 +50,16 @@ function App() {
   return (
     <main className="main">
       <div className="container">
-        <header className="header">
-          <div className="image-container">
-            <img
-              src="https://ocdn.eu/pulscms-transforms/1/r6lk9kuTURBXy8yZWM0MWEwNC05NDc2LTRiMjQtYjYzYy02ZjkxMWJmMDU0NmQuanBlZ5GVAs0CZwDDw94AAaEwAQ"
-              alt="pieniądze"
-            />
-          </div>
-          <div className="title-container">
-            <h1>Przelicznik walut</h1>
-          </div>
-        </header>
-        <div className="form-container">
-          <div className="input-group">
-            <input
-              type="number"
-              placeholder="Kwota"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-          </div>
-          <div className="select-group">
-            <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
-              <option value="eur">Euro (EUR)</option>
-              <option value="usd">US Dollar (USD)</option>
-              <option value="chf">Frank Szwajcarski (CHF)</option>
-            </select>
-          </div>
-          <div className="button-group">
-            <button type="button" onClick={handleConvert}>
-              Przelicz
-            </button>
-          </div>
-        </div>
-        {loading && <div className="loader">Loading...</div>}
-        <div className="result-container">
-          {result}
-        </div>
+        <Header />
+        <CurrencyConverterForm onConvert={handleConvert} />
+        <Loader loading={loading} />
+        <DisplayCalculation result={result} />
       </div>
     </main>
   );
 }
 
 export default App;
+
+
 

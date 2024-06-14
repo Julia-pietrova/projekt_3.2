@@ -1,8 +1,8 @@
-import React from 'react';
+import './Header.css';
 
-const Logo = () => {
+const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <div className="image-container">
         <img
           src="https://ocdn.eu/pulscms-transforms/1/r6lk9kuTURBXy8yZWM0MWEwNC05NDc2LTRiMjQtYjYzYy02ZjkxMWJmMDU0NmQuanBlZ5GVAs0CZwDDw94AAaEwAQ"
@@ -10,10 +10,12 @@ const Logo = () => {
         />
       </div>
       <div className="title-container">
-        <h1>Przelicznik walut</h1>
+        <h1 className="title">Przelicznik walut</h1>
       </div>
-    </div>
+    </header>
   );
 };
 
-export default Logo;
+export default Header;
+
+
