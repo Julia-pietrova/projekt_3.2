@@ -71,3 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 You can see the live demo of the application [here](https://splendorous-chaja-b6b340.netlify.app).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/539e6d5d-d2eb-4562-a1e0-ad607df6c219/deploy-status)](https://app.netlify.com/sites/splendorous-chaja-b6b340/deploys)
